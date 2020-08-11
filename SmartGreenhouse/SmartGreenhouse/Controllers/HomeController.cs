@@ -3,35 +3,47 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SmartGreenhouse.Interface;
 using SmartGreenhouse.Models;
+using SmartGreenhouse.ViewModel;
 
 namespace SmartGreenhouse.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IValues _service;
+        private readonly IMapper _mapper;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(IValues service,IMapper mapper)
         {
-            _logger = logger;
+            _service = service;
+            _mapper = mapper;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var result = _service.GetTemperatures();
+            return View(_mapper.Map<List<TemperatureVM>>(result));
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Humidity()
+        {
+            var result = _service.GetHumidity();
+            return View(_mapper.Map<List<HumidityVM>>(result));
+        }
+
+        [HttpGet]
+        public IActionResult Fan()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
     }
 }

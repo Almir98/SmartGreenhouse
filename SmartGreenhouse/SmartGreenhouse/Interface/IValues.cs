@@ -1,0 +1,16 @@
+﻿using SmartGreenhouse.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace SmartGreenhouse.Interface
+{
+    public interface IValues
+    {
+        List<TemperatureVM> GetTemperatures();
+        
+        List<HumidityVM> GetHumidity();
+
+    }
+}
