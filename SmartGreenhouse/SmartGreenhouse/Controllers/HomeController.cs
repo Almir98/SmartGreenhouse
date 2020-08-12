@@ -38,6 +38,15 @@ namespace SmartGreenhouse.Controllers
             return View(_mapper.Map<List<HumidityVM>>(result));
         }
 
+
+        [HttpGet]
+        public IActionResult Luminosity()
+        {
+            var result = _service.GetLuminosity();
+            return View(_mapper.Map<List<LuminosityVM>>(result));
+        }
+
+
         [HttpGet]
         public IActionResult Fan()
         {

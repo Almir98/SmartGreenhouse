@@ -26,6 +26,12 @@ namespace SmartGreenhouse.Service
             return _mapper.Map<List<HumidityVM>>(result);
         }
 
+        public List<LuminosityVM> GetLuminosity()
+        {
+            var result = _context.RecentValues.ToList();
+            return _mapper.Map<List<LuminosityVM>>(result);
+        }
+
         public List<TemperatureVM> GetTemperatures()
         {
             var result = _context.RecentValues.ToList();

@@ -9,5 +9,6 @@ namespace SmartGreenhouse.Database
         public double? Temperature { get; set; }
         public double? Humidity { get; set; }
         public DateTime? InsertDate { get; set; }
+        public double? Luminosity { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace SmartGreenhouse.Interface
         List<TemperatureVM> GetTemperatures();
         
         List<HumidityVM> GetHumidity();
+        List<LuminosityVM> GetLuminosity();
+
 
     }
 }

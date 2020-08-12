@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace SmartGreenhouse.Database
 {
-    public partial class SmartGreenHouseDbContext : DbContext
+    public partial class SmartGreenHouseDb : DbContext
     {
-        public SmartGreenHouseDbContext()
+        public SmartGreenHouseDb()
         {
         }
 
-        public SmartGreenHouseDbContext(DbContextOptions<SmartGreenHouseDbContext> options)
+        public SmartGreenHouseDb(DbContextOptions<SmartGreenHouseDb> options)
             : base(options)
         {
         }
@@ -21,7 +21,7 @@ namespace SmartGreenhouse.Database
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.;Database=SmartGreenHouseDb;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=SmartGreenHouseDb;Integrated Security=True;Trusted_Connection=True;");
             }
         }
 
