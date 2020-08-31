@@ -12,7 +12,7 @@ namespace SmartGreenhouse.Interface
         
         List<HumidityVM> GetHumidity();
         List<LuminosityVM> GetLuminosity();
-
+        public void FanStatus();
 
     }
 }

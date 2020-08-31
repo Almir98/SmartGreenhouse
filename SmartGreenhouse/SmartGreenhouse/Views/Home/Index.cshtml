@@ -3,13 +3,6 @@
 
 @model List<TemperatureVM>
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
 <div class="row bg-title">
@@ -95,7 +88,7 @@
 <script>
 
     var table = document.getElementById('dataTable');
-    var json = []; // First row needs to be headers 
+    var json = [];  
     var headers = [];
 
     for (var i = 0; i < table.rows[0].cells.length; i++) {
@@ -110,20 +103,14 @@
     }
         json.push(rowData);
     }
-    console.log(json);
-
 
     var labels = json.map(function (e) {
     return e.datumpohranevrijednosti;
     });
 
-    console.log(labels); 
-
     var values = json.map(function (e) {
     return e.izmjerenatemperatura;
     });
-
-    console.log(values); 
 
     var myChart = new Chart('chart', {
     type: 'line',

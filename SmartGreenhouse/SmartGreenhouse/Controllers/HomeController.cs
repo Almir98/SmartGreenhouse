@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using SmartGreenhouse.Interface;
-using SmartGreenhouse.Models;
 using SmartGreenhouse.ViewModel;
 
 namespace SmartGreenhouse.Controllers
@@ -38,6 +33,8 @@ namespace SmartGreenhouse.Controllers
         public IActionResult Humidity()
         {
             var result = _service.GetHumidity();
+            var lastHumidity = _service.GetHumidity().Last().Humidity;
+            ViewBag.last = lastHumidity;
             return View(_mapper.Map<List<HumidityVM>>(result));
         }
 
@@ -46,9 +43,10 @@ namespace SmartGreenhouse.Controllers
         public IActionResult Luminosity()
         {
             var result = _service.GetLuminosity();
+            var lastLuminosity = _service.GetLuminosity().Last().Luminosity;
+            ViewBag.last = lastLuminosity;
             return View(_mapper.Map<List<LuminosityVM>>(result));
         }
-
 
         [HttpGet]
         public IActionResult Fan()
@@ -56,6 +54,13 @@ namespace SmartGreenhouse.Controllers
             return View();
         }
 
+
+        [HttpPost]
+       
+        public void TurnOnOff()
+        {
+            _service.FanStatus();
+        }
 
     }
 }

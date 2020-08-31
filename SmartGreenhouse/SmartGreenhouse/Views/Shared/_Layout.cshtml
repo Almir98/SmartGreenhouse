@@ -24,8 +24,7 @@
     <link href="~/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/css/style.css" rel="stylesheet">
-    <!-- color CSS -->
-    <link href="css/animate.css" rel="stylesheet">
+
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="~/css/colors/default.css" id="theme" rel="stylesheet">
 
@@ -40,22 +39,19 @@
                     <!-- Logo -->
                     <a class="logo" href="index.html">
                         <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                            <!--This is dark logo icon--><img src="../plugins/images/smart.jfif" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
                         </b>
                         <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
+                            <!--This is dark logo text--><img src="../plugins/images/smart.jfif" alt="home" class="dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
                         </span>
                     </a>
                 </div>
+
                 <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
-                    @*<li>
-                            <a class="profile-pic" href="#"> <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b></a>
-                        </li>*@
                 </ul>
             </div>
         </nav>
-
 
         <!-- SIDEBAR-->
 
@@ -66,16 +62,16 @@
                 </div>
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
-                        <a asp-controller="Home" asp-action="Index" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Temperatura</a>
+                        <a asp-controller="Home" asp-action="Index" class="waves-effect"><i class="fa fa-thermometer-half" aria-hidden="true"></i>Temperatura</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Humidity" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Vlažnost zraka</a>
+                        <a asp-controller="Home" asp-action="Humidity" class="waves-effect"><i class="fa fa-cloud" aria-hidden="true"></i>Vlažnost zraka</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Luminosity" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Osvjetljenje</a>
+                        <a asp-controller="Home" asp-action="Luminosity" class="waves-effect"><i class="fa fa-lightbulb-o" aria-hidden="true"></i>Osvjetljenje</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Fan" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Ventilator</a>
+                        <a asp-controller="Home" asp-action="Fan" class="waves-effect"><i class="fas fa-fan" aria-hidden="true"></i>Ventilator</a>
                     </li>
                 </ul>
             </div>

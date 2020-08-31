@@ -20,6 +20,19 @@ namespace SmartGreenhouse.Service
             _mapper = mapper;
         }
 
+        public void FanStatus()
+        {
+            var result = _context.RecentValues.Last();
+            if (result.FanStatus == true)
+            {
+                result.FanStatus = false;
+            }
+            else
+            {
+                result.FanStatus = true;
+            }
+        }
+
         public List<HumidityVM> GetHumidity()
         {
             var result = _context.RecentValues.ToList();

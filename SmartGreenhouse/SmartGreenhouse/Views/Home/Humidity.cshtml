@@ -3,6 +3,7 @@
 
 @model List<HumidityVM>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -16,23 +17,23 @@
 <div class="row">
     <div class="col-lg-4 col-sm-6 col-xs-12">
         <div class="white-box analytics-info">
-            <h3 class="box-title">Trenutna vlažnost zraka</h3>
+            <h3 class="box-title" style="text-align:center;">Trenutna vlažnost zraka</h3>
             <ul class="list-inline two-part">
                 <li>
                     <div id="sparklinedash"></div>
                 </li>
-                <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success">659</span></li>
+                <li style="text-align:left"><i class="ti-arrow-up text-success"></i> <span class="counter text-success">@ViewBag.last</span></li>
             </ul>
         </div>
     </div>
     <div class="col-lg-4 col-sm-6 col-xs-12">
         <div class="white-box analytics-info">
-            <h3 class="box-title">Optimalna vlažnost zraka</h3>
+            <h3 class="box-title" style="text-align:center;">Optimalna vlažnost zraka</h3>
             <ul class="list-inline two-part">
                 <li>
                     <div id="sparklinedash2"></div>
                 </li>
-                <li class="text-right"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple">869</span></li>
+                <li style="text-align:left"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple">20</span></li>
             </ul>
         </div>
     </div>
@@ -45,7 +46,7 @@
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="white-box">
             <h3 class="box-title">Grafički prikaz vrijednosti vlažnosti</h3>
-            <div id="ct-visits" style="height: 405px;"></div>
+            <canvas id="chart" style="height: 100px;"></canvas>
         </div>
     </div>
 </div>
@@ -58,7 +59,7 @@
 
             <h3 class="box-title">Tabelarni prikaz vrijednosti vlažnosti</h3>
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" id="dataTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -81,3 +82,46 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    var table = document.getElementById('dataTable');
+    var json = [];
+    var headers = [];
+
+    for (var i = 0; i < table.rows[0].cells.length; i++) {
+        headers[i] = table.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi, '');
+    }
+
+    for (var i = 1; i < table.rows.length; i++) {
+        var tableRow = table.rows[i];
+        var rowData = {};
+        for (var j = 0; j < tableRow.cells.length; j++) {
+            rowData[headers[j]] = tableRow.cells[j].innerHTML;
+        }
+        json.push(rowData);
+    }
+
+    var labels = json.map(function (e) {
+        return e.datumpohranevrijednosti;
+    });
+
+    var values = json.map(function (e) {
+        return e.izmjerenjevlažnostzraka;
+    });
+
+    var myChart = new Chart('chart', {
+        type: 'line',
+        data: {
+            labels: labels, // Our labels
+            datasets: [{
+                label: "Vlažnost zraka",
+                data: values, // Our values
+                backgroundColor: 'rgb(153, 153, 224)',
+                borderColor: 'blue',
+
+                borderWidth: 1
+            }]
+        }
+    });
+</script>
