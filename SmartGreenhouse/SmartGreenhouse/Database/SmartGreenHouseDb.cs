@@ -29,6 +29,8 @@ namespace SmartGreenhouse.Database
         {
             modelBuilder.Entity<RecentValues>(entity =>
             {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
                 entity.Property(e => e.InsertDate).HasColumnType("datetime");
             });
 

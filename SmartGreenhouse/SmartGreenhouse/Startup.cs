@@ -27,7 +27,7 @@ namespace SmartGreenhouse
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SmartGreenHouseDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Smart-Greenhouse")));
+            services.AddDbContext<SmartGreenHouseDb>(options => options.UseSqlServer(Configuration.GetConnectionString("Smart-Greenhouse")));
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IValues, ValuesService>();
 

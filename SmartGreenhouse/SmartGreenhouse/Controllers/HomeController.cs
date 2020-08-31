@@ -28,6 +28,9 @@ namespace SmartGreenhouse.Controllers
         public IActionResult Index()
         {
             var result = _service.GetTemperatures();
+
+            var lastTemperature = _service.GetTemperatures().Last().Temperature;
+            ViewBag.last = lastTemperature;
             return View(_mapper.Map<List<TemperatureVM>>(result));
         }
 

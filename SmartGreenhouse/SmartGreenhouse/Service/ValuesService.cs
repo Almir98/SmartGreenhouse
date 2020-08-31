@@ -11,10 +11,10 @@ namespace SmartGreenhouse.Service
 {
     public class ValuesService:IValues
     {
-        private readonly SmartGreenHouseDbContext _context;
+        private readonly SmartGreenHouseDb _context;
         private readonly IMapper _mapper;
 
-        public ValuesService(SmartGreenHouseDbContext context,IMapper mapper)
+        public ValuesService(SmartGreenHouseDb context,IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
