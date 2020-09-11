@@ -4,57 +4,31 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <link rel="icon" href="~/css/images/smartGreenhouse.PNG" type="image/x-icon">
     <title>Smart Greenhouse</title>
 
-    <!-- Bootstrap Core CSS -->
     <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Menu CSS -->
-    <link href="~/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-    <!-- toast CSS -->
-    <link href="~/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-    <!-- morris CSS -->
-    <link href="~/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
-    <!-- chartist CSS -->
-    <link href="~/plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
-    <link href="~/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
-    <!-- animation CSS -->
-    <link href="~/css/animate.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="~/css/style.css" rel="stylesheet">
-
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="~/css/colors/default.css" id="theme" rel="stylesheet">
 
+    <style>
+
+
+    </style>
+
 </head>
-
 <body class="fix-header">
-
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header">
                 <div class="top-left-part">
-                    <!-- Logo -->
-                    <a class="logo" href="index.html">
-                        <!-- Logo icon image, you can use font-icon also --><b>
-                            <!--This is dark logo icon--><img src="../plugins/images/smart.jfif" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
-                        </b>
-                        <!-- Logo text image you can use text also --><span class="hidden-xs">
-                            <!--This is dark logo text--><img src="../plugins/images/smart.jfif" alt="home" class="dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home" class="light-logo" />
-                        </span>
-                    </a>
+                     <a asp-controller="Home" asp-action="Index" style="color:black;">Smart greenhouse</a>
                 </div>
-
-                <!-- /Logo -->
                 <ul class="nav navbar-top-links navbar-right pull-right">
                 </ul>
             </div>
         </nav>
-
-        <!-- SIDEBAR-->
-
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
@@ -62,13 +36,13 @@
                 </div>
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
-                        <a asp-controller="Home" asp-action="Index" class="waves-effect"><i class="fa fa-thermometer-half" aria-hidden="true"></i>Temperatura</a>
+                        <a asp-controller="Home" asp-action="Index" class="waves-effect"><i class="fa fa-thermometer-half" aria-hidden="true"></i> Temperatura</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Humidity" class="waves-effect"><i class="fa fa-cloud" aria-hidden="true"></i>Vlažnost zraka</a>
+                        <a asp-controller="Home" asp-action="Humidity" class="waves-effect"><i class="fa fa-cloud" aria-hidden="true"></i> Vlažnost zraka</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Luminosity" class="waves-effect"><i class="fa fa-lightbulb-o" aria-hidden="true"></i>Osvjetljenje</a>
+                        <a asp-controller="Home" asp-action="Luminosity" class="waves-effect"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Osvjetljenje</a>
                     </li>
                     <li>
                         <a asp-controller="Home" asp-action="Fan" class="waves-effect"><i class="fas fa-fan" aria-hidden="true"></i>Ventilator</a>
@@ -76,43 +50,20 @@
                 </ul>
             </div>
         </div>
-
-        <!-- END SIDEBAR-->
-        <!-- CONTENT-->
-
         <div id="page-wrapper" style="height:500px;">
             <div class="container-fluid">
-
                 <div class="">
                     <main role="main" class="pb-3">
                         @RenderBody()
                     </main>
                 </div>
-
             </div>
         </div>
-
-        <!-- END CONTENT-->
-
         <div id="page-wrapper" style="margin-top:0px">
             <div class="container-fluid">
             </div>
         </div>
-
         <footer class="footer text-center"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
-
     </div>
-
-    @*<script src="~/plugins/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="~/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-    <script src="~/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/js/jquery.slimscroll.js"></script>
-    <script src="~/plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
-    <script src="~/plugins/bower_components/counterup/jquery.counterup.min.js"></script>
-    <script src="~/plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
-    <script src="~/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="~/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <script src="~/js/custom.min.js"></script>*@
-
 </body>
 </html>

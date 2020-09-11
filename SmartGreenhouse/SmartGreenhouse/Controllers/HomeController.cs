@@ -24,7 +24,7 @@ namespace SmartGreenhouse.Controllers
         {
             var result = _service.GetTemperatures();
 
-            var lastTemperature = _service.GetTemperatures().Last().Temperature;
+            var lastTemperature = result.Last().Temperature;
             ViewBag.last = lastTemperature;
             return View(_mapper.Map<List<TemperatureVM>>(result));
         }
@@ -37,7 +37,6 @@ namespace SmartGreenhouse.Controllers
             ViewBag.last = lastHumidity;
             return View(_mapper.Map<List<HumidityVM>>(result));
         }
-
 
         [HttpGet]
         public IActionResult Luminosity()

@@ -9,6 +9,7 @@ namespace SmartGreenhouse.ViewModel
     {
         public int Id { get; set; }
         public float Temperature { get; set; }
+        public double? HeatIndex { get; set; }
         public DateTime? InsertDate { get; set; }
     }
 }

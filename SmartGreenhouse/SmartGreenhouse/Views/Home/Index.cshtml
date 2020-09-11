@@ -5,6 +5,12 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
+<style>
+
+
+</style>
+
+
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
         <p>
@@ -12,8 +18,6 @@
         </p>
     </div>
 </div>
-
-@* 2 boxa  *@
 <div class="row">
     <div class="col-lg-4 col-sm-6 col-xs-12">
         <div class="white-box analytics-info">
@@ -22,7 +26,9 @@
                 <li>
                     <div id="sparklinedash"></div>
                 </li>
-                <li style="text-align:left;"><i class="ti-arrow-up text-success"></i> <span class="counter text-success">@ViewBag.last</span></li>
+                <li style="text-align:left;"><i class="ti-arrow-up text-success">
+                     </i> <span class="counter text-black-50">@ViewBag.last</span>
+                </li>
             </ul>
         </div>
     </div>
@@ -33,15 +39,13 @@
                 <li>
                     <div id="sparklinedash2"></div>
                 </li>
-                <li style="text-align:left;"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple">24</span></li>
+                <li style="text-align:left;"><i class="ti-arrow-up text-purple">
+                     </i> <span class="counter text-black-50">24</span>
+                </li>
             </ul>
         </div>
     </div>
 </div>
-
-
-@* GRAFIKON *@
-
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="white-box">
@@ -51,13 +55,11 @@
     </div>
 </div>
 
-
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="white-box">
             <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
             </div>
-
             <h3 class="box-title">Tabelarni prikaz vrijednosti temperature</h3>
             <div class="table-responsive">
                 <table class="table" id="dataTable">
@@ -66,6 +68,7 @@
                             <th>ID</th>
                             <th>Datum pohrane vrijednosti</th>
                             <th>Izmjerena temperatura</th>
+                            <th>Indeks topline</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -75,6 +78,7 @@
                                 <td>@item.Id</td>
                                 <td class="txt-oflo">@item.InsertDate</td>
                                 <td class="txt-oflo">@item.Temperature</td>
+                                <td class="txt-oflo">@item.HeatIndex</td>
                             </tr>
                         }
                     </tbody>
@@ -84,47 +88,41 @@
     </div>
 </div>
 
-
 <script>
-
     var table = document.getElementById('dataTable');
-    var json = [];  
+    var json = [];
     var headers = [];
 
     for (var i = 0; i < table.rows[0].cells.length; i++) {
         headers[i] = table.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi, '');
     }
-
     for (var i = 1; i < table.rows.length; i++) {
         var tableRow = table.rows[i];
         var rowData = {};
-    for (var j = 0; j < tableRow.cells.length; j++) {
-        rowData[headers[j]] = tableRow.cells[j].innerHTML;
-    }
+        for (var j = 0; j < tableRow.cells.length; j++) {
+            rowData[headers[j]] = tableRow.cells[j].innerHTML;
+        }
         json.push(rowData);
     }
 
     var labels = json.map(function (e) {
-    return e.datumpohranevrijednosti;
+        return e.datumpohranevrijednosti;
     });
-
     var values = json.map(function (e) {
-    return e.izmjerenatemperatura;
+        return e.izmjerenatemperatura;
     });
 
     var myChart = new Chart('chart', {
-    type: 'line',
-    data: {
-      labels: labels, // Our labels
-      datasets: [{
-        label: "Temperatura", 
-        data: values, // Our values
-        backgroundColor: 'rgb(153, 153, 224)',
-        borderColor: 'blue',
-        
-        borderWidth: 1 
-      }]
-    }
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Temperatura",
+                data: values, 
+                backgroundColor: 'rgb(153, 153, 224)',
+                borderColor: 'blue',
+                borderWidth: 1
+            }]
+        }
     });
-
 </script>
