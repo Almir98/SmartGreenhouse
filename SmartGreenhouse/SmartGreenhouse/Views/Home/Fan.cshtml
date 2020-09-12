@@ -2,17 +2,44 @@
 
 
 <div class="row bg-title">
-    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
         <p>
             <strong style="margin:auto">MANUELNO UPRAVLJANJE RASHLAĐIVANJEM PLASTENIKA</strong>
         </p>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-sm-6 col-xs-12">
+        <button asp-action="TurnOnOff()" class="white-box analytics-info">
+            <div class="white-box analytics-info">
+                <h3 class="box-title" style="text-align:center;">Upali ventilator</h3>
+                <ul class="list-inline two-part">
+                    <li>
+                        <div id="sparklinedash"></div>
+                    </li>
+                </ul>
+            </div>
+        </button>
+    </div>
+    <div class="col-lg-4 col-sm-6 col-xs-12">
+        <div class="white-box analytics-info">
+      <button asp-action="TurnOnOff()" class="white-box analytics-info">
+
+                <h3 class="box-title" style="text-align:center;">Ugasi ventilator</h3>
+                <ul class="list-inline two-part">
+                    <li>
+                        <div id="sparklinedash2"></div>
+                    </li>
+                </ul>
+      </button>
+        </div>
     </div>
 </div>
 
-@* 2 boxa  *@
-<div class="row">
+
+
+@*<div class="row">
     
-    <div class="col-lg-4 col-sm-6 col-xs-12">
+    <div class="col-lg-4 col-sm- col-xs-12">
         <button class="white-box analytics-info" style="width:250px">
             <h3 class="box-title">Upali ventilator</h3>
             <ul class="list-inline two-part">
@@ -24,12 +51,12 @@
 
     <div class="col-lg-4 col-sm-6 col-xs-12">
         <button asp-action="TurnOnOff()" class="white-box analytics-info" style="width:250px">
-            <h3 class="box-title">Ugasi ventilator</h3>
+            <h3 class="box-title"></h3>
             <ul class="list-inline two-part">
                 <li class="text-right"><i class="ti-arrow-up text-purple"></i></li>
             </ul>
         </button>
     </div>
-</div>
+</div>*@
 
 

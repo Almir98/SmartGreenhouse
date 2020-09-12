@@ -1,15 +1,8 @@
 ﻿@using SmartGreenhouse.Database;
 @using SmartGreenhouse.ViewModel;
-
 @model List<TemperatureVM>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-
-<style>
-
-
-</style>
-
 
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -54,7 +47,6 @@
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="white-box">
@@ -119,7 +111,7 @@
             datasets: [{
                 label: "Temperatura",
                 data: values, 
-                backgroundColor: 'rgb(153, 153, 224)',
+                backgroundColor: 'rgb(140, 160, 224)',
                 borderColor: 'blue',
                 borderWidth: 1
             }]

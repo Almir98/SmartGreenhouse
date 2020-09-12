@@ -1,6 +1,5 @@
 ﻿@using SmartGreenhouse.Database;
 @using SmartGreenhouse.ViewModel;
-
 @model List<HumidityVM>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
@@ -12,8 +11,6 @@
         </p>
     </div>
 </div>
-
-@* 2 boxa  *@
 <div class="row">
     <div class="col-lg-4 col-sm-6 col-xs-12">
         <div class="white-box analytics-info">
@@ -38,10 +35,6 @@
         </div>
     </div>
 </div>
-
-
-@* GRAFIKON *@
-
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="white-box">
@@ -50,7 +43,6 @@
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="white-box">
@@ -113,13 +105,12 @@
     var myChart = new Chart('chart', {
         type: 'line',
         data: {
-            labels: labels, // Our labels
+            labels: labels,
             datasets: [{
                 label: "Vlažnost zraka",
-                data: values, // Our values
-                backgroundColor: 'rgb(153, 153, 224)',
+                data: values, 
+                backgroundColor: 'rgb(140, 160, 224)',
                 borderColor: 'blue',
-
                 borderWidth: 1
             }]
         }

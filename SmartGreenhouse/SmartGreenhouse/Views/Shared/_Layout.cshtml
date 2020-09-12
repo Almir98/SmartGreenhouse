@@ -13,7 +13,22 @@
     <link href="~/css/colors/default.css" id="theme" rel="stylesheet">
 
     <style>
+        #footer{
+            background:#2f323e;
+            color:white;
+        }
 
+        #side{
+            background-color:#2f323e;
+        }
+
+        div li a{
+            color:white;
+        }
+
+        #side-menu li a{
+            color:white;
+        }
 
     </style>
 
@@ -22,18 +37,15 @@
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header">
-                <div class="top-left-part">
-                     <a asp-controller="Home" asp-action="Index" style="color:black;">Smart greenhouse</a>
+                <div class="navbar-header top-left-part">
+                     <a asp-controller="Home" asp-action="Index">Smart greenhouse</a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                 </ul>
             </div>
         </nav>
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav slimscrollsidebar">
-                <div class="sidebar-head">
-                    <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
-                </div>
+        <div id="side" class="navbar-default sidebar">
+            <div class="navbar-header sidebar-nav slimscrollsidebar">
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
                         <a asp-controller="Home" asp-action="Index" class="waves-effect"><i class="fa fa-thermometer-half" aria-hidden="true"></i> Temperatura</a>
@@ -63,7 +75,7 @@
             <div class="container-fluid">
             </div>
         </div>
-        <footer class="footer text-center"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
+        <footer id="footer" class="footer text-center"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
     </div>
 </body>
 </html>
