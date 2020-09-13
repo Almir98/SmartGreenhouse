@@ -53,6 +53,13 @@ namespace SmartGreenhouse.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult AboutProject()
+        {
+            return View();
+        }
+
+
 
         [HttpPost]
        
