@@ -1,9 +1,9 @@
 ﻿<style>
-    #about{
-        text-align:center;
-        background-color:lightgray;
-        margin-top:4%;
-        height:100%;
+    #about {
+        text-align: center;
+        background-color: lightgray;
+        margin-top: 4%;
+        height: 100%;
     }
 
     .section {
@@ -13,13 +13,26 @@
         margin-top: 1%;
     }
 
-    p{
+    p {
         text-align: justify;
         text-justify: inter-word;
-        font-size:15px;
-        color:black;
+        font-size: 15px;
+        color: black;
     }
+
+    img{
+        margin: auto;
+    }
+
+    .container{
+        width:60%;
+        height:60%;
+    }
+
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -31,12 +44,13 @@
 <div id="about">
     <div class="section">
         <h2>Ideja rješenja sistema</h2>
-        <p>Sistem za upravljanje plastenikom nastoji povećati kontrolu povrća, kvalitetu proizvoda te povećeati obim poslovanja.
+        <p>
+            Sistem za upravljanje plastenikom nastoji povećati kontrolu povrća, kvalitetu proizvoda te povećeati obim poslovanja.
             Projekat „Sistem za upravljanje plastenikom Smart greenhouse” nastoji izgraditi sistem koji će prvenstveno olakšati rad ljudi
             u plastenicima za potrebom manualne intervencije, a zatim i automatizaciju i praćenje određenih svakodnevnih aktivnosti.
             Sistem će omogućiti da se na osnovu određenih parametara sa senzora  temperature i vlažnosti aktivira otvaranje i zatvaranje
             prozora ukoliko je temperatura iznad prosječne temperature, zatim rashlađivanje unutrašnjosti plastenika ventilatorom,
-            automatsko paljenje i gašenje svjetala simulacijom asimilacijske lampe u unutrašnjosti plastenika pri nedostatku dovoljne 
+            automatsko paljenje i gašenje svjetala simulacijom asimilacijske lampe u unutrašnjosti plastenika pri nedostatku dovoljne
             količine sunčeve svjetlosti senzorom osvjetljenja.
         </p>
     </div>
@@ -61,3 +75,39 @@
     </div>
 </div>
 
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        @*<ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>*@
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img class="images" src="~/css/images/smartGreenhouse.png" alt="Los Angeles" style="width:75%;height:100%;background-size:cover;">
+            </div>
+            <div class="item">
+                <img class="images" src="~/css/images/smartGreenhouse.png" alt="Los Angeles" style="width:75%;height:100%;background-size:cover;">
+            </div>
+            <div class="item">
+                <img class="images" src="~/css/images/smartGreenhouse.png" alt="Los Angeles" style="width:75%;height:100%;background-size:cover;">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+<footer id="footer" class="footer text-center"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
