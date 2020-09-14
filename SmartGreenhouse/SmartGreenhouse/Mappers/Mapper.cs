@@ -14,6 +14,8 @@ namespace SmartGreenhouse.Mappers
             CreateMap<TemperatureVM,Database.RecentValues>().ReverseMap();
             CreateMap<HumidityVM, Database.RecentValues>().ReverseMap();
             CreateMap<LuminosityVM, Database.RecentValues>().ReverseMap();
+            CreateMap<RecentValuesVM, Database.RecentValues>().ReverseMap();
+
 
 
 

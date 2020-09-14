@@ -5,11 +5,14 @@ using System.Threading.Tasks;
 
 namespace SmartGreenhouse.ViewModel
 {
-    public class TemperatureVM
+    public class RecentValuesVM
     {
-        public int Id { get; set; }
         public double? Temperature { get; set; }
+        public double? Humidity { get; set; }
         public double? HeatIndex { get; set; }
         public DateTime? InsertDate { get; set; }
+        public double? Luminosity { get; set; }
+        public bool? FanStatus { get; set; }
+        public bool? WindowStatus { get; set; }
     }
 }

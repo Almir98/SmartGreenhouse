@@ -2,6 +2,12 @@
 @using SmartGreenhouse.ViewModel;
 @model List<TemperatureVM>
 
+<style>
+    #dataTable td{
+        color:black;
+    }
+</style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
 <div class="row bg-title">
@@ -75,12 +81,17 @@
                         }
                     </tbody>
                 </table>
+                <button type="button" class="btn btn-info" onclick="location.href='Home/ExportToExcel'">Export to excel</button>
+
             </div>
         </div>
     </div>
 </div>
 
 <script>
+
+    
+
     var table = document.getElementById('dataTable');
     var json = [];
     var headers = [];
