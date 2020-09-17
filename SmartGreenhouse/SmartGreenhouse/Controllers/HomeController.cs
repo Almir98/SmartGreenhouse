@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
@@ -65,17 +66,14 @@ namespace SmartGreenhouse.Controllers
             return View();
         }
 
-
-
         [HttpPost]
-       
         public void TurnOnOff()
         {
             _service.FanStatus();
         }
 
         [HttpGet]
-        public IActionResult ExportToExcel()
+        public IActionResult ExportTemperatureToExcel()
         {
             var list = _database.RecentValues.Select(e => new TemperatureVM { 
             
@@ -84,7 +82,6 @@ namespace SmartGreenhouse.Controllers
                 HeatIndex=e.HeatIndex,
                 InsertDate=e.InsertDate,
             }).ToList();
-
             var stream = new MemoryStream();
             ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
             using (var package = new ExcelPackage(stream))
@@ -98,13 +95,62 @@ namespace SmartGreenhouse.Controllers
                 package.Save();
             }
             stream.Position = 0;
-            string excelName = $"TemperatureTable-{DateTime.Now.ToShortDateString()}.xlsx";
-
-            //return File(stream, "application/octet-stream", excelName);  
+            string excelName = $"Temperature-data-{DateTime.Now.ToShortDateString()}.xlsx";
             return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
         }
 
+        [HttpGet]
+        public IActionResult ExportHumidityToExcel()
+        {
+            var list = _database.RecentValues.Select(e => new HumidityVM
+            {
 
+                Id = e.Id,
+                Humidity = e.Humidity,
+                InsertDate = e.InsertDate,
+            }).ToList();
+            var stream = new MemoryStream();
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            using (var package = new ExcelPackage(stream))
+            {
+                var workSheet = package.Workbook.Worksheets.Add("Sheet1");
+                workSheet.Cells.LoadFromCollection(list, true);
+                for (int i = 0; i < list.Count(); i++)
+                {
+                    workSheet.Cells["C" + (i + 2).ToString()].Style.Numberformat.Format = "dd-mm-yyyy";
+                }
+                package.Save();
+            }
+            stream.Position = 0;
+            string excelName = $"Humidity-data-{DateTime.Now.ToShortDateString()}.xlsx";
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+        }
+        
+        [HttpGet]
+        public IActionResult ExportLuminosityToExcel()
+        {
+            var list = _database.RecentValues.Select(e => new LuminosityVM
+            {
 
+                Id = e.Id,
+                Luminosity = e.Luminosity,
+                InsertDate = e.InsertDate,
+            }).ToList();
+            var stream = new MemoryStream();
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            using (var package = new ExcelPackage(stream))
+            {
+                var workSheet = package.Workbook.Worksheets.Add("Sheet1");
+                workSheet.Cells.LoadFromCollection(list, true);
+                for (int i = 0; i < list.Count(); i++)
+                {
+                    workSheet.Cells["C" + (i + 2).ToString()].Style.Numberformat.Format = "dd-mm-yyyy";
+                }
+                package.Save();
+            }
+            stream.Position = 0;
+            string excelName = $"Luminosity-data-{DateTime.Now.ToShortDateString()}.xlsx";
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+        }
     }
 }

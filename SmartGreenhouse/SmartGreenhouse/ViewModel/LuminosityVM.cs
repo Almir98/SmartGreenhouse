@@ -8,7 +8,7 @@ namespace SmartGreenhouse.ViewModel
     public class LuminosityVM
     {
         public int Id { get; set; }
-        public float Luminosity { get; set; }
+        public double? Luminosity { get; set; }
         public DateTime? InsertDate { get; set; }
     }
 }

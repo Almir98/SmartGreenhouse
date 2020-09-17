@@ -7,16 +7,21 @@
     <link rel="icon" href="~/css/images/smartGreenhouse.PNG" type="image/x-icon">
     <title>Smart Greenhouse</title>
 
-    <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="~/css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="~/css/css.css" type="text/css" rel="stylesheet">
+
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     <style>
 
         #footer {
             background: #2f323e;
             color: white;
+            padding:15px;
         }
 
         #side {
@@ -32,17 +37,15 @@
             color: white;
         }
 
-
-
     </style>
 
 </head>
 <body class="fix-header">
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-static-top m-b-0">
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
-                <div class="navbar-header top-left-part">
-                    <a asp-controller="Home" asp-action="Index"><i class="fa fa-home" aria-hidden="true"></i> Smart greenhouse</a>
+                <div id="navbar" class="navbar-header top-left-part">
+                    <a asp-controller="Home" asp-action="Index"><i class="fa fa-home" ></i> Smart greenhouse</a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                 </ul>
@@ -52,19 +55,19 @@
             <div class="navbar-header sidebar-nav slimscrollsidebar">
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
-                        <a asp-controller="Home" asp-action="Index" class="waves-effect"><i class="fa fa-thermometer-half" aria-hidden="true"></i> Temperatura</a>
+                        <a asp-controller="Home" asp-action="Index"><i class="fa fa-thermometer-half" aria-hidden="true"></i> Temperatura</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Humidity" class="waves-effect"><i class="fa fa-cloud" aria-hidden="true"></i> Vlažnost zraka</a>
+                        <a asp-controller="Home" asp-action="Humidity"><i class="fa fa-cloud" aria-hidden="true"></i> Vlažnost zraka</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Luminosity" class="waves-effect"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Osvjetljenje</a>
+                        <a asp-controller="Home" asp-action="Luminosity"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Osvjetljenje</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Fan" class="waves-effect"><i class="fas fa-fan" aria-hidden="true"></i> Ventilator</a>
+                        <a asp-controller="Home" asp-action="Fan"><i class="fas fa-fan" aria-hidden="true"></i> Ventilator</a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="AboutProject" class="waves-effect"><i class="fa fa-laptop" aria-hidden="true"></i> O projektu</a>
+                        <a asp-controller="Home" asp-action="AboutProject"><i class="fa fa-laptop" aria-hidden="true"></i> O projektu</a>
                     </li>
                 </ul>
             </div>
@@ -82,9 +85,8 @@
             <div class="container-fluid">
             </div>
         </div>
-        <footer id="footer" class="footer text-center"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
+        <footer id="footer" class="text-center"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
     </div>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </body>
 </html>

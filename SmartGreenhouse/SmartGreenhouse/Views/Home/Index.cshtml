@@ -49,7 +49,7 @@
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="white-box">
             <h3 class="box-title">Grafički prikaz vrijednosti temperature</h3>
-            <canvas id="chart" style="height: 100px;"></canvas>
+            <canvas id="chart" ></canvas>
         </div>
     </div>
 </div>
@@ -81,16 +81,13 @@
                         }
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-info" onclick="location.href='Home/ExportToExcel'">Export to excel</button>
-
+                <button type="button" class="btn btn-info" onclick="location.href='Home/ExportTemperatureToExcel'">Export to Excel</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-
-    
 
     var table = document.getElementById('dataTable');
     var json = [];
