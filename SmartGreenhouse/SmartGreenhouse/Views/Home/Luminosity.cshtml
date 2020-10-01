@@ -4,6 +4,12 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
+<style>
+    #dataTable td {
+        color: black;
+    }
+</style>
+
 <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
         <p>
@@ -71,10 +77,14 @@
                     </tbody>
                 </table>
                 <button type="button" class="btn btn-info" onclick="location.href='ExportLuminosityToExcel'">Export to Excel</button>
+                <button type="button" class="btn btn-info ml-10" id="btnExport" onclick="ExportPDF()">Export to PDF</button>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
 <script>
 
@@ -109,11 +119,26 @@
             labels: labels,
             datasets: [{
                 label: "Vlažnost zraka",
-                data: values, 
+                data: values,
                 backgroundColor: 'rgb(140, 160, 224)',
                 borderColor: 'blue',
                 borderWidth: 1
             }]
         }
     });
+
+    function ExportPDF() {
+        html2canvas(document.getElementById('dataTable'), {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("LuminosityValues.pdf");
+            }
+        });
+    }
 </script>
