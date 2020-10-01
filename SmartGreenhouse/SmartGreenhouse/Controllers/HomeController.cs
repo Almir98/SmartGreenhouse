@@ -54,6 +54,17 @@ namespace SmartGreenhouse.Controllers
             return View(_mapper.Map<List<LuminosityVM>>(result));
         }
 
+        public IActionResult SaveData(double temperature, double humidity, double heat, double luminosity)
+        {
+            _service.SaveData(temperature, humidity, heat, luminosity);
+            
+            var result = _service.GetTemperatures();
+            var lastHumidity = _service.GetHumidity().Last().Humidity;
+            ViewBag.last = lastHumidity;
+            return View("Index",result);
+        }
+
+
         [HttpGet]
         public IActionResult Fan()
         {

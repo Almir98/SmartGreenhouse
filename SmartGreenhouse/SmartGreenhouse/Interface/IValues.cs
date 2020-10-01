@@ -14,5 +14,7 @@ namespace SmartGreenhouse.Interface
         List<LuminosityVM> GetLuminosity();
         public void FanStatus();
 
+        public void SaveData(double temperature, double humidity, double heat, double luminosity);
+
     }
 }

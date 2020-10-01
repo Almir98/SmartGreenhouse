@@ -5658,7 +5658,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 button.close {
   padding: 0;
-  background-color: transparent;
+  background-color: white;
   border: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -5830,7 +5830,7 @@ a.close.disabled {
 }
 
 .modal-backdrop {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 1040;
@@ -6514,17 +6514,17 @@ a.close.disabled {
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #0062cc !important;
+    background-color: white;
 }
 
 .bg-secondary {
-  background-color: #6c757d !important;
+    background-color: white;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
 button.bg-secondary:focus {
-  background-color: #545b62 !important;
+  background-color: white;
 }
 
 .bg-success {
@@ -6534,21 +6534,21 @@ button.bg-secondary:focus {
 a.bg-success:hover, a.bg-success:focus,
 button.bg-success:hover,
 button.bg-success:focus {
-  background-color: #1e7e34 !important;
+    background-color: white;
 }
 
 .bg-info {
-  background-color: #17a2b8 !important;
+    background-color: white;
 }
 
 a.bg-info:hover, a.bg-info:focus,
 button.bg-info:hover,
 button.bg-info:focus {
-  background-color: #117a8b !important;
+    background-color: white;
 }
 
 .bg-warning {
-  background-color: #ffc107 !important;
+    background-color: white;
 }
 
 a.bg-warning:hover, a.bg-warning:focus,
@@ -7769,7 +7769,7 @@ button.bg-dark:focus {
 }
 
 .position-fixed {
-  position: fixed !important;
+  position: relative !important;
 }
 
 .position-sticky {
@@ -7778,7 +7778,7 @@ button.bg-dark:focus {
 }
 
 .fixed-top {
-  position: fixed;
+  position: relative;
   top: 0;
   right: 0;
   left: 0;
@@ -7786,7 +7786,7 @@ button.bg-dark:focus {
 }
 
 .fixed-bottom {
-  position: fixed;
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;

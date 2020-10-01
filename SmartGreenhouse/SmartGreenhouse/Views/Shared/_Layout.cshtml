@@ -7,12 +7,11 @@
     <link rel="icon" href="~/css/images/smartGreenhouse.PNG" type="image/x-icon">
     <title>Smart Greenhouse</title>
 
-        <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="~/css/colors/default.css" id="theme" rel="stylesheet">
 
-    <link href="~/css/css.css" type="text/css" rel="stylesheet">
 
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
@@ -21,11 +20,13 @@
         #footer {
             background: #2f323e;
             color: white;
-            padding:15px;
+            padding: 15px;
         }
 
         #side {
             background-color: #2f323e;
+            width:13%;
+            height:100%;
         }
 
         div li a {
@@ -37,42 +38,92 @@
             color: white;
         }
 
+        #IzbornikDugme {
+                color: #2f323e;
+                display:none;
+        }
+
+        #nav{
+            display:block;
+            background-color: #2f323e;
+            margin-left:200px;
+        }
+
+        #home{
+            text-transform:uppercase;
+            font-size:16px;
+            color:white;
+            padding-left:20px;
+            margin-top:15px;
+        }
+
+        @@media only screen and (max-width: 600px) {
+
+            #IzbornikDugme {
+                display: inline-block;
+                color: white;
+                text-align: right;
+                font-size: 23px;
+                margin-left: 35%;
+                cursor: pointer;
+            }
+
+            #Izbornik {
+                overflow: hidden;
+                height: 100%;
+                width: 100%;
+            }
+
+            #side {
+                width: 100%;
+                height: 10%;
+            }
+
+            #nav {
+                display: none;
+            }
+        }
     </style>
 
+    <link href="~/css/css.css" type="text/css" rel="stylesheet">
+
 </head>
+
 <body class="fix-header">
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="navbar-header">
+        <nav id="nav" class="navbar navbar-default navbar-static-top">
+            <div class="navbar-header" id="Izbornik">
                 <div id="navbar" class="navbar-header top-left-part">
-                    <a asp-controller="Home" asp-action="Index"><i class="fa fa-home" ></i> Smart greenhouse</a>
                 </div>
-                <ul class="nav navbar-top-links navbar-right pull-right">
-                </ul>
             </div>
         </nav>
+
         <div id="side" class="navbar-default sidebar">
-            <div class="navbar-header sidebar-nav slimscrollsidebar">
-                <ul class="nav" id="side-menu">
-                    <li style="padding: 70px 0 0;">
-                        <a asp-controller="Home" asp-action="Index"><i class="fa fa-thermometer-half" aria-hidden="true"></i> Temperatura</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Home" asp-action="Humidity"><i class="fa fa-cloud" aria-hidden="true"></i> Vlažnost zraka</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Home" asp-action="Luminosity"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Osvjetljenje</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Home" asp-action="Fan"><i class="fas fa-fan" aria-hidden="true"></i> Ventilator</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Home" asp-action="AboutProject"><i class="fa fa-laptop" aria-hidden="true"></i> O projektu</a>
-                    </li>
-                </ul>
-            </div>
+            <br />
+            <a asp-controller="Home" asp-action="Index" id="home"><i class="fa fa-home"></i> Smart greenhouse</a><span id="IzbornikDugme">☰</span>
+
+            <ul class="nav" id="side-menu">
+
+                <li style="padding: 20px 0 0;">
+                    <a asp-controller="Home" asp-action="Index"><i class="fa fa-thermometer-half" aria-hidden="true"></i> Temperatura</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Humidity"><i class="fa fa-cloud" aria-hidden="true"></i> Vlažnost zraka</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Luminosity"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Osvjetljenje</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Fan"><i class="fas fa-fan" aria-hidden="true"></i> Ventilator</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="AboutProject"><i class="fa fa-laptop" aria-hidden="true"></i> O projektu</a>
+                </li>
+            </ul>
         </div>
-        <div id="page-wrapper" style="height:500px;">
+
+        <div id="page-wrapper" style="height:800px;">
+            @* ispravit *@
             <div class="container-fluid">
                 <div class="">
                     <main role="main" class="pb-3">
@@ -88,6 +139,29 @@
         <footer id="footer" class="text-center"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
     </div>
 
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script>
+
+        if (window.screen.width <= 600) {
+
+            var izbornik = document.getElementById("side");
+            izbornik.style.height = "65px";
+
+            document.getElementById("IzbornikDugme").addEventListener('click', function () {
+                if (izbornik.style.height == "65px") {
+                    izbornik.style.height = izbornik.scrollHeight + "px";
+                }
+                else {
+                    izbornik.style.height = "65px";
+                }
+            });
+        }
+
+    </script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
-

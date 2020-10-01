@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using SmartGreenhouse.Database;
 using SmartGreenhouse.Interface;
 using SmartGreenhouse.ViewModel;
@@ -51,7 +52,19 @@ namespace SmartGreenhouse.Service
             return _mapper.Map<List<TemperatureVM>>(result);
         }
 
+        public void SaveData(double temperature, double humidity, double heat,double luminosity)
+        {
+            RecentValues entity=new RecentValues();
 
+            entity.Temperature = temperature;
+            entity.Humidity = humidity;
+            entity.HeatIndex = heat;
+            entity.Luminosity = luminosity;
 
+            entity.InsertDate = DateTime.Now;
+
+            _context.Add(entity);
+            _context.SaveChanges();
+        }
     }
 }
