@@ -64,23 +64,10 @@ namespace SmartGreenhouse.Controllers
             return View("Index",result);
         }
 
-
-        [HttpGet]
-        public IActionResult Fan()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult AboutProject()
         {
             return View();
-        }
-
-        [HttpPost]
-        public void TurnOnOff()
-        {
-            _service.FanStatus();
         }
 
         [HttpGet]

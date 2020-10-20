@@ -7,156 +7,100 @@
     <link rel="icon" href="~/css/images/smartGreenhouse.PNG" type="image/x-icon">
     <title>Smart Greenhouse</title>
 
-    <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/css/style.css" rel="stylesheet">
+    @*<link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">*@
+    @*<link href="~/css/style.css" rel="stylesheet">*@
+    @*<link href="~/css/colors/default.css" id="theme" rel="stylesheet">*@
+
+
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <link href="~/css/colors/default.css" id="theme" rel="stylesheet">
-
-
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
     <style>
 
-        #footer {
-            background: #2f323e;
-            color: white;
-            padding: 15px;
+        #titles i,a{
+            color:white;
         }
-
-        #side {
-            background-color: #2f323e;
-            width: 13%;
-            height: 100%;
-        }
-
-        div li a {
-            color: white;
-            cursor: pointer;
-        }
-
-        #side-menu li a {
-            color: white;
-        }
-
-        #IzbornikDugme {
-            color: #2f323e;
-            display: none;
-        }
-
-        #nav {
-            display: block;
-            background-color: #2f323e;
-            margin-left: 200px;
-        }
-
-        #home {
-            text-transform: uppercase;
-            font-size: 16px;
-            color: white;
-            padding-left: 20px;
-            margin-top: 15px;
-        }
-
-        @@media only screen and (max-width: 600px) {
-
-            #IzbornikDugme {
-                display: inline-block;
-                color: white;
-                text-align: right;
-                font-size: 23px;
-                margin-left: 35%;
-                cursor: pointer;
-            }
-
-            #Izbornik {
-                overflow: hidden;
-                height: 100%;
-                width: 100%;
-            }
-
-            #side {
-                width: 100%;
-                height: 10%;
-            }
-
-            #nav {
-                display: none;
-            }
+        #titles a{
+            color:white;
         }
     </style>
-
-    <link href="~/css/css.css" type="text/css" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/libs/css/style.css">
+    <link rel="stylesheet" href="~/assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="~/assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="~/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+   
+    <link rel="stylesheet" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/vendor/fonts/circular-std/style.css" >
 
 </head>
 
-<body class="fix-header">
-    <div id="wrapper">
-        <nav id="nav" class="navbar navbar-default navbar-static-top">
-            <div class="navbar-header" id="Izbornik">
-                <div id="navbar" class="navbar-header top-left-part">
-                </div>
-            </div>
-        </nav>
-
-        <div id="side" class="navbar-default sidebar">
-            <br />
-            <a asp-controller="Home" asp-action="Index" id="home"><i class="fa fa-home"></i> Smart greenhouse</a><span id="IzbornikDugme">☰</span>
-
-            <ul class="nav" id="side-menu">
-
-                <li style="padding: 20px 0 0;">
-                    <a asp-controller="Home" asp-action="Index"><i class="fa fa-thermometer-half" aria-hidden="true"></i> Temperatura</a>
-                </li>
-                <li>
-                    <a asp-controller="Home" asp-action="Humidity"><i class="fa fa-cloud" aria-hidden="true"></i> Vlažnost zraka</a>
-                </li>
-                <li>
-                    <a asp-controller="Home" asp-action="Luminosity"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Osvjetljenje</a>
-                </li>
-                <li>
-                    <a asp-controller="Home" asp-action="AboutProject"><i class="fa fa-laptop" aria-hidden="true"></i> O projektu</a>
-                </li>
-            </ul>
+<body>
+    <div class="dashboard-main-wrapper">
+        <div class="dashboard-header fixed-top">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top" style="height:50px;">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Smart Greenhouse</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
         </div>
 
-        <div id="page-wrapper" style="height:800px;">
-            @* ispravit *@
-            <div class="container-fluid">
-                <div class="">
-                    <main role="main" class="pb-3">
-                        @RenderBody()
-                    </main>
-                </div>
+        <!-- left sidebar -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Funkcionalnosti</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul id="titles" class="navbar-nav flex-column">
+                            <li class="nav-divider" style="color:white;">
+                                Funkcionalnosti
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i>Temperatura</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" asp-controller="Home" asp-action="Humidity"><i class="fa fa-cloud" aria-hidden="true"></i>Vlažnost zraka</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" asp-controller="Home" asp-action="Luminosity"><i class="fas fa-lightbulb" aria-hidden="true"></i> Osvjetljenje</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="AboutProject"><i class="fa fa-laptop" aria-hidden="true"></i> O projektu</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
         </div>
-        <div id="page-wrapper" style="margin-top:0px">
-            <div class="container-fluid">
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+
+                    <div class="ecommerce-widget">
+
+                        <div class="container-fluid">
+                            <div class="">
+                                <main role="main" class="pb-3">
+                                    @RenderBody()
+                                </main>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
             </div>
         </div>
-        <footer id="footer" class="text-center"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <footer class="sidebar-dark" style="padding:15px;text-align:center;color:white;"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
 
-    <script>
-
-        if (window.screen.width <= 600) {
-
-            var izbornik = document.getElementById("side");
-            izbornik.style.height = "65px";
-
-            document.getElementById("IzbornikDugme").addEventListener('click', function () {
-                if (izbornik.style.height == "65px") {
-                    izbornik.style.height = izbornik.scrollHeight + "px";
-                }
-                else {
-                    izbornik.style.height = "65px";
-                }
-            });
-        }
-    </script>
-
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="~/assets/libs/js/main-js.js"></script>
 
 </body>
 </html>

@@ -10,43 +10,47 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
-<div class="row bg-title">
-    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-        <p>
-            <strong style="margin:auto">TEMPERATURA</strong>
-        </p>
-    </div>
-</div>
+
 <div class="row">
-    <div class="col-lg-4 col-sm-6 col-xs-12">
-        <div class="white-box analytics-info">
-            <h3 class="box-title" style="text-align:center;">Trenutna temperatura</h3>
-            <ul class="list-inline two-part">
-                <li>
-                    <div id="sparklinedash"></div>
-                </li>
-                <li style="text-align:left;">
-                    <i class="ti-arrow-up text-success">
-                    </i> <span class="counter text-black-50">@ViewBag.last</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-lg-4 col-sm-6 col-xs-12">
-        <div class="white-box analytics-info">
-            <h3 class="box-title" style="text-align:center;">Optimalna temperatura</h3>
-            <ul class="list-inline two-part">
-                <li>
-                    <div id="sparklinedash2"></div>
-                </li>
-                <li style="text-align:left;">
-                    <i class="ti-arrow-up text-purple">
-                    </i> <span class="counter text-black-50">24</span>
-                </li>
-            </ul>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="page-header">
+            <h2 class="pageheader-title">Temperatura</h2>
+            <hr />
         </div>
     </div>
 </div>
+
+<div class="ecommerce-widget">
+    <div class="row">
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="text-muted">Trenutna temperatura</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">@ViewBag.last °C</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="text-muted">Optimalna temperatura</h5>
+                    <div class="metric-value d-inline-block">
+                        <h1 class="mb-1">24 °C</h1>
+                    </div>
+                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+</div>
+
+
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="white-box">
@@ -55,6 +59,10 @@
         </div>
     </div>
 </div>
+<br />
+<br />
+<br />
+
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="white-box">
@@ -84,7 +92,7 @@
                     </tbody>
                 </table>
                 <button type="button" class="btn btn-info" onclick="location.href='Home/ExportTemperatureToExcel'">Export to Excel</button>
-                <button type="button" class="btn btn-info ml-10" id="btnExport" onclick="ExportPDF()">Export to PDF</button>
+                <button type="button" class="btn btn-info ml-20" id="btnExport" onclick="ExportPDF()">Export to PDF</button>
 
             </div>
         </div>
@@ -92,7 +100,7 @@
 </div>
 
 @*<script src="~/assets/js/plugins/dataTables/datatables.min.js"></script>
-<script src="~/assets/js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>*@
+    <script src="~/assets/js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>*@
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
