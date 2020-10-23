@@ -11,6 +11,6 @@ namespace SmartGreenhouse.Database
         public double? HeatIndex { get; set; }
         public DateTime? InsertDate { get; set; }
         public double? Luminosity { get; set; }
-        public bool? WindowStatus { get; set; }
+
     }
 }
