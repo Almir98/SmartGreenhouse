@@ -11,5 +11,7 @@ namespace SmartGreenhouse.ViewModel
         public double? Humidity { get; set; }
         public double? HeatIndex { get; set; }
         public double? Luminosity { get; set; }
+        public DateTime? InsertDate { get; set; }
+
     }
 }
