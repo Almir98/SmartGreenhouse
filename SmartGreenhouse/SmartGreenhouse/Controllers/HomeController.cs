@@ -58,15 +58,16 @@ namespace SmartGreenhouse.Controllers
         {
             _service.SaveData(temperature, humidity, heat, luminosity);
             
-            var result = _service.GetTemperatures();
-            var lastHumidity = _service.GetHumidity().Last().Humidity;
-            ViewBag.last = lastHumidity;
+            var result = _service.GetTemperatures().Last().Temperature;
+            ViewBag.last = result;
+            //var lastHumidity = _service.GetHumidity().Last().Humidity;
             //return View("Index",result);
 
             // NOVO
 
-            ValuesVM entity = new ValuesVM();
-
+            RecentValues entity = new RecentValues();
+            
+            entity.Id = _service.GetTemperatures().Last().Id + 1;
             entity.Temperature = temperature;
             entity.Humidity = humidity;
             entity.HeatIndex = heat;
