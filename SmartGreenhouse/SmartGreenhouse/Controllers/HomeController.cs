@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 using SmartGreenhouse.Database;
@@ -13,6 +14,7 @@ using SmartGreenhouse.ViewModel;
 
 namespace SmartGreenhouse.Controllers
 {
+    [EnableCors("AllowAll")]
     public class HomeController : Controller
     {
         private readonly IValues _service;
@@ -54,25 +56,22 @@ namespace SmartGreenhouse.Controllers
             return View(_mapper.Map<List<LuminosityVM>>(result));
         }
 
-        public IActionResult Save(double temperature, double humidity, double heat, double luminosity)
+        [EnableCors("AllowAll")]
+        public IActionResult Save(int temperature, int humidity, int heat, int luminosity)
         {
-            _service.SaveData(temperature, humidity, heat, luminosity);
-            
-            var result = _service.GetTemperatures().Last().Temperature;
-            ViewBag.last = result;
-            //var lastHumidity = _service.GetHumidity().Last().Humidity;
-            //return View("Index",result);
-
-            // NOVO
-
             RecentValues entity = new RecentValues();
             
-            entity.Id = _service.GetTemperatures().Last().Id + 1;
             entity.Temperature = temperature;
             entity.Humidity = humidity;
             entity.HeatIndex = heat;
             entity.Luminosity = luminosity;
             entity.InsertDate = DateTime.Now.Date;
+
+            _database.Add(entity);
+            _database.SaveChanges();
+
+            var result = _service.GetTemperatures().Last().Temperature;
+            ViewBag.last = result;
 
             return Json(entity);
         }

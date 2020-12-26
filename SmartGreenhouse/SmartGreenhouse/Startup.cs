@@ -31,6 +31,16 @@ namespace SmartGreenhouse
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IValues, ValuesService>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                  builder =>
+                  {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                  });
+            });
 
             services.AddControllersWithViews();
         }
@@ -52,8 +62,9 @@ namespace SmartGreenhouse
             app.UseStaticFiles();
 
             app.UseRouting();
+            //app.UseAuthorization();
 
-            app.UseAuthorization();
+            app.UseCors("AllowAll");
 
             app.UseEndpoints(endpoints =>
             {
