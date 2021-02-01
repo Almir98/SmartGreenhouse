@@ -5,10 +5,13 @@ Primarily an Arduino project with temperature and humidity sensor, a light senso
 
 ## Images:
 #### 1. Create a chart based on the measured temperature values from the sensor Arduino
-![sl1](https://user-images.githubusercontent.com/52430859/95694350-f186b480-0c31-11eb-9cb1-b467e734704f.PNG)
+![1](https://user-images.githubusercontent.com/52430859/106480408-ad067980-64ab-11eb-9a70-713b19cc8668.PNG)
+
+![3](https://user-images.githubusercontent.com/52430859/106480731-ffe03100-64ab-11eb-8a23-724c1f41102b.PNG)
+
 
 #### 2. In addition to the graph, there is a tabular display of values for easier readability. You can open spreadsheets in Excel or print them out if you need to.
-![sl2](https://user-images.githubusercontent.com/52430859/95694356-f8152c00-0c31-11eb-9fd8-cfd50fc43545.PNG)
+![2](https://user-images.githubusercontent.com/52430859/106480626-e2ab6280-64ab-11eb-9082-441fdace9ca6.PNG)
 
 #### 3. The following image provides some information about the project itself.
-![sl3](https://user-images.githubusercontent.com/52430859/95694357-fcd9e000-0c31-11eb-9e00-452c52fe9fd3.PNG)
+![4](https://user-images.githubusercontent.com/52430859/106480830-19817880-64ac-11eb-980d-82c7f94cb572.PNG)
