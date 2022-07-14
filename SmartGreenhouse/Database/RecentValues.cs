@@ -13,6 +13,6 @@ namespace SmartGreenhouse.Database
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime? InsertDate { get; set; }
         public double? Luminosity { get; set; }
-
+        public double? Gas { get; set; }
     }
 }

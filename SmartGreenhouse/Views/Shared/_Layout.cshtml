@@ -4,27 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="~/css/images/smartGreenhouse.PNG" type="image/x-icon">
-    <title>Smart Greenhouse</title>
+    <link rel="icon" href="~/css/images/house.png" type="image/x-icon">
+    <title>Smart House</title>
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <style>
-        #titles i,a{
-            color:white;
-        }
-        #titles a{
-            color:white;
-        }
-    </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/assets/libs/css/style.css">
     <link rel="stylesheet" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/assets/vendor/fonts/circular-std/style.css" >
+
+    <link rel="stylesheet" href="~/css/custom.css">
 </head>
 <body>
     <div class="dashboard-main-wrapper">
         <div class="dashboard-header fixed-top">
             <nav class="navbar navbar-expand-lg bg-white fixed-top" style="height:50px;">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Smart Greenhouse</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Smart House</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,6 +46,9 @@
                             <li class="nav-item ">
                                 <a class="nav-link" asp-controller="Home" asp-action="Luminosity"><i class="fas fa-lightbulb" aria-hidden="true"></i> Osvjetljenje</a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" asp-controller="Home" asp-action="Gas"><i class="fa fa-fire" aria-hidden="true"></i> Zagađenost zraka</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Home" asp-action="AboutProject"><i class="fa fa-laptop" aria-hidden="true"></i> O projektu</a>
                             </li>
@@ -78,7 +75,7 @@
             </div>
         </div>
     </div>
-    <footer class="sidebar-dark" style="padding:15px;text-align:center;color:white;"><strong> 2020 &copy; Smart Greenhouse - Almir Tihak</strong></footer>
+    <footer class="sidebar-dark" style="padding:15px;text-align:center;color:white;"><strong> 2022 &copy; Smart House - Almir Tihak</strong></footer>
     <script src="~/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="~/assets/vendor/slimscroll/jquery.slimscroll.js"></script>

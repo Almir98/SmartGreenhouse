@@ -1,16 +1,14 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using SmartGreenhouse.Database;
 using SmartGreenhouse.Interface;
 using SmartGreenhouse.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SmartGreenhouse.Service
 {
-    public class ValuesService:IValues
+    public class ValuesService : IValues
     {
         private readonly SmartGreenHouseDb _context;
         private readonly IMapper _mapper;
@@ -21,6 +19,11 @@ namespace SmartGreenhouse.Service
             _mapper = mapper;
         }
 
+        public List<GasVM> GetGas()
+        {
+            var result = _context.RecentValues.ToList();
+            return _mapper.Map<List<GasVM>>(result);
+        }
 
         public List<HumidityVM> GetHumidity()
         {
@@ -49,7 +52,7 @@ namespace SmartGreenhouse.Service
             entity.HeatIndex = heat;
             entity.Luminosity = luminosity;
 
-            entity.InsertDate = DateTime.Now;
+            entity.InsertDate = DateTime.UtcNow;
 
             _context.Add(entity);
             _context.SaveChanges();

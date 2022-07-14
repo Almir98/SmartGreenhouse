@@ -15,14 +15,7 @@ namespace SmartGreenhouse.Mappers
             CreateMap<HumidityVM, Database.RecentValues>().ReverseMap();
             CreateMap<LuminosityVM, Database.RecentValues>().ReverseMap();
             CreateMap<ValuesVM, Database.RecentValues>().ReverseMap();
-
-
-
-
-
-
-
-
+            CreateMap<GasVM, Database.RecentValues>().ReverseMap();
 
         }
     }

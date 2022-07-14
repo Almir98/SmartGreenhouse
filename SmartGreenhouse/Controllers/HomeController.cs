@@ -56,8 +56,18 @@ namespace SmartGreenhouse.Controllers
             return View(_mapper.Map<List<LuminosityVM>>(result));
         }
 
+        [HttpGet]
+        public IActionResult Gas()
+        {
+            var result = _service.GetGas();
+            var lastGas = _service.GetGas().Last().Gas;
+            ViewBag.last = lastGas;
+            return View(_mapper.Map<List<GasVM>>(result));
+        }
+
+
         [EnableCors("AllowAll")]
-        public IActionResult Save(int temperature, int humidity, int heat, int luminosity)
+        public IActionResult Save(int temperature, int humidity, int heat, int luminosity, int gas)
         {
             RecentValues entity = new RecentValues();
             
@@ -65,6 +75,7 @@ namespace SmartGreenhouse.Controllers
             entity.Humidity = humidity;
             entity.HeatIndex = heat;
             entity.Luminosity = luminosity;
+            entity.Gas = gas;
             entity.InsertDate = DateTime.Now.Date;
 
             _database.Add(entity);
@@ -160,6 +171,33 @@ namespace SmartGreenhouse.Controllers
             }
             stream.Position = 0;
             string excelName = $"Luminosity-data-{DateTime.Now.ToShortDateString()}.xlsx";
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+        }
+
+        [HttpGet]
+        public IActionResult ExportGasToExcel()
+        {
+            var list = _database.RecentValues.Select(e => new GasVM
+            {
+
+                Id = e.Id,
+                Gas = e.Gas,
+                InsertDate = e.InsertDate,
+            }).ToList();
+            var stream = new MemoryStream();
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            using (var package = new ExcelPackage(stream))
+            {
+                var workSheet = package.Workbook.Worksheets.Add("Sheet1");
+                workSheet.Cells.LoadFromCollection(list, true);
+                for (int i = 0; i < list.Count(); i++)
+                {
+                    workSheet.Cells["C" + (i + 2).ToString()].Style.Numberformat.Format = "dd-mm-yyyy";
+                }
+                package.Save();
+            }
+            stream.Position = 0;
+            string excelName = $"Gas-data-{DateTime.Now.ToShortDateString()}.xlsx";
             return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
         }
     }

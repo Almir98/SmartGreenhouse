@@ -1,8 +1,5 @@
 ﻿using SmartGreenhouse.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SmartGreenhouse.Interface
 {
@@ -12,6 +9,8 @@ namespace SmartGreenhouse.Interface
         
         List<HumidityVM> GetHumidity();
         List<LuminosityVM> GetLuminosity();
+        List<GasVM> GetGas();
+
 
         public void SaveData(double temperature, double humidity, double heat, double luminosity);
 

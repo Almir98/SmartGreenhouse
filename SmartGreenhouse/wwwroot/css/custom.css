@@ -1,0 +1,33 @@
+﻿#titles i, a {
+    color: white;
+}
+
+#titles a {
+    color: white;
+}
+
+.nav-left-sidebar {
+    /*background-color: orange !important;*/
+}
+
+.slimScrollBar:hover{
+    position:static;
+    width:0px;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    .slimScrollBar {
+        width: 7px;
+    }
+
+
+}

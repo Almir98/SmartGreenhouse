@@ -1,6 +1,6 @@
 ﻿@using SmartGreenhouse.Database;
 @using SmartGreenhouse.ViewModel;
-@model List<HumidityVM>
+@model List<LuminosityVM>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
@@ -9,10 +9,11 @@
         color: black;
     }
 </style>
+
 <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="page-header">
-            <h2 class="pageheader-title">Vlažnost zraka</h2>
+            <h2 class="pageheader-title">Osvjetljenje</h2>
             <hr />
         </div>
     </div>
@@ -22,7 +23,7 @@
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="text-muted">Trenutna vlažnost zraka</h5>
+                    <h5 class="text-muted">Trenutno osvjetljenje</h5>
                     <div class="metric-value d-inline-block">
                         <h2 class="mb-1">@ViewBag.last %</h2>
                     </div>
@@ -34,7 +35,7 @@
         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="text-muted">Optimalna vlažnost zraka</h5>
+                    <h5 class="text-muted">Optimalno osvjetljenje</h5>
                     <div class="metric-value d-inline-block">
                         <h2 class="mb-1">80 %</h2>
                     </div>
@@ -49,25 +50,25 @@
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="white-box">
-            <h3 class="box-title">Grafički prikaz vrijednosti vlažnosti</h3>
-            <canvas id="chart" style="height: 100px;"></canvas>
+            <h3 class="box-title">Grafički prikaz vrijednosti osvjetljenja</h3>
+            <canvas id="chart"></canvas>
         </div>
     </div>
 </div>
-<br/><br/><br/>
+<br /><br /><br />
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="white-box">
             <div class="col-md-3 col-sm-4 col-xs-6 pull-right">
             </div>
-            <h3 class="box-title">Tabelarni prikaz vrijednosti vlažnosti</h3>
+            <h3 class="box-title">Tabelarni prikaz vrijednosti osvjetljenja</h3>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="dataTable">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Datum pohrane vrijednosti</th>
-                            <th>Izmjerenje vlažnost zraka</th>
+                            <th>Izmjereno osvjetljenje</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,13 +77,13 @@
                             <tr>
                                 <td>@item.Id</td>
                                 <td class="txt-oflo">@item.InsertDate</td>
-                                <td class="txt-oflo">@item.Humidity</td>
+                                <td class="txt-oflo">@item.Luminosity</td>
                             </tr>
                         }
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-info" onclick="location.href='ExportHumidityToExcel'">Export to Excel</button>
-                @*<button type="button" class="btn btn-info ml-10" id="btnExport" onclick="ExportPDF()">Export to PDF</button>*@
+                <button type="button" class="btn btn-primary" onclick="location.href='ExportLuminosityToExcel'">Export to Excel</button>
+                @*<button type="button" class="btn btn-primary ml-10" id="btnExport" onclick="ExportPDF()">Export to PDF</button>*@
             </div>
         </div>
     </div>
@@ -90,15 +91,12 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 <script>
-
     var table = document.getElementById('dataTable');
     var json = [];
     var headers = [];
-
     for (var i = 0; i < table.rows[0].cells.length; i++) {
         headers[i] = table.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi, '');
     }
-
     for (var i = 1; i < table.rows.length; i++) {
         var tableRow = table.rows[i];
         var rowData = {};
@@ -107,21 +105,18 @@
         }
         json.push(rowData);
     }
-
     var labels = json.map(function (e) {
         return e.datumpohranevrijednosti;
     });
-
     var values = json.map(function (e) {
-        return e.izmjerenjevlažnostzraka;
+        return e.izmjerenoosvjetljenje;
     });
-
     var myChart = new Chart('chart', {
         type: 'line',
         data: {
             labels: labels,
             datasets: [{
-                label: "Vlažnost zraka",
+                label: "Osvjetljenje",
                 data: values,
                 backgroundColor: 'rgb(140, 160, 224)',
                 borderColor: 'blue',
@@ -129,7 +124,6 @@
             }]
         }
     });
-
     function ExportPDF() {
         html2canvas(document.getElementById('dataTable'), {
             onrendered: function (canvas) {
@@ -140,7 +134,7 @@
                         width: 500
                     }]
                 };
-                pdfMake.createPdf(docDefinition).download("HumidityValues.pdf");
+                pdfMake.createPdf(docDefinition).download("LuminosityValues.pdf");
             }
         });
     }
